@@ -1,14 +1,44 @@
 /** Brands, team, careers, testimonials, stats and premium data. */
 
 /* ---------------- Brands ---------------- */
-export const BRANDS_SERVED = [
-  "Maruti Suzuki", "Hyundai", "Tata", "Mahindra", "Toyota", "Honda",
-  "Kia", "Volkswagen", "Skoda", "Renault", "Nissan", "Ford", "MG", "Jeep",
+export type Brand = { name: string; logo: string };
+
+export const BRANDS_SERVED: Brand[] = [
+  { name: "Maruti Suzuki", logo: "/brand_logo/Suzuki-logo-640x285.jpg" },
+  { name: "Hyundai", logo: "/brand_logo/hyundai-logo-2011-640.png" },
+  { name: "Tata", logo: "/brand_logo/Tata-logo-2000-640x550.jpg" },
+  { name: "Mahindra", logo: "/brand_logo/Mahindra-logo-640x316.jpg" },
+  { name: "Honda", logo: "/brand_logo/honda-logo-2000-full-download.png" },
+  { name: "Renault", logo: "/brand_logo/Renault-logo-2015-640x550.jpg" },
+  { name: "Ford", logo: "/brand_logo/ford-logo-2017-download.png" },
+  { name: "MG", logo: "/brand_logo/MG-logo-red-2010-640x550.jpg" },
+  { name: "Jeep", logo: "/brand_logo/jeep-logo.png" },
+  { name: "Datsun", logo: "/brand_logo/Datsun-logo-2013-640x344.jpg" },
+  { name: "Fiat", logo: "/brand_logo/Fiat-logo-2006-640x550.jpg" },
 ];
 
-export const PREMIUM_BRANDS = [
-  "BMW", "Mercedes-Benz", "Audi", "Volvo", "Jaguar",
-  "Land Rover", "Porsche", "MINI", "Lexus",
+/** Luxury brands shown on the Premium Cars page */
+export const PREMIUM_BRANDS: Brand[] = [
+  { name: "BMW", logo: "/Premium_brand_logo/bmw-logo-2020-gray.png" },
+  { name: "Mercedes-Benz", logo: "/Premium_brand_logo/Mercedes-Benz-logo-2011-640x369.jpg" },
+  { name: "Audi", logo: "/Premium_brand_logo/audi-logo-2016-640.png" },
+  { name: "Volvo", logo: "/Premium_brand_logo/Volvo-logo-2014-640x550.jpg" },
+  { name: "Jaguar", logo: "/Premium_brand_logo/jaguar-logo-2021-640.png" },
+  { name: "Land Rover", logo: "/Premium_brand_logo/Land-Rover-logo-2011-640x335.jpg" },
+  { name: "Porsche", logo: "/Premium_brand_logo/porsche-logo-2014-full-640.png" },
+  { name: "MINI", logo: "/Premium_brand_logo/Mini-logo-2001-640x270.jpg" },
+  { name: "BMW M", logo: "/Premium_brand_logo/BMW-M-logo-640x231.jpg" },
+];
+
+/** Additional multi-brand logos (non-luxury, used in marquee) */
+export const OTHER_BRANDS: Brand[] = [
+  { name: "Volkswagen", logo: "/Premium_brand_logo/Volkswagen-logo-2019-640x500.jpg" },
+  { name: "Skoda", logo: "/Premium_brand_logo/Skoda-logo-2016-640x550.jpg" },
+  { name: "Kia", logo: "/Premium_brand_logo/Kia-logo-640x321.jpg" },
+  { name: "Chevrolet", logo: "/Premium_brand_logo/Chevrolet-logo-2013-640x281.jpg" },
+  { name: "Isuzu", logo: "/Premium_brand_logo/Isuzu-logo-1991-640x106.jpg" },
+  { name: "Mitsubishi", logo: "/Premium_brand_logo/Mitsubishi-logo-640x550.jpg" },
+  { name: "MG", logo: "/Premium_brand_logo/MG-logo-red-2010-640x550.jpg" },
 ];
 
 /* ---------------- Stats ---------------- */

@@ -107,6 +107,9 @@ export const PRIMARY_NAV: NavItem[] = [
   { label: "Fleet", href: "/fleet-management" },
   { label: "Team", href: "/team" },
   { label: "Blog", href: "/blog" },
+  { label: "FAQs", href: "/faqs" },
+  { label: "Careers", href: "/careers" },
+  { label: "Terms", href: "/terms" },
   { label: "Contact", href: "/contact" },
 ];
 

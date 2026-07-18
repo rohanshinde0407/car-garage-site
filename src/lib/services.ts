@@ -10,6 +10,7 @@ export type ServiceCategory = {
   id: string;
   title: string;
   icon: ServiceIcon;
+  image: string;
   summary: string;
   services: Service[];
 };
@@ -32,6 +33,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     id: "periodic-maintenance",
     title: "Periodic Maintenance",
     icon: "maintenance",
+    image: "/service/service-oil.avif",
     summary: "Scheduled servicing that keeps your car reliable, efficient and warranty-safe.",
     services: [
       mk("Engine Oil", "Grade-correct engine oil replacement for smooth, protected performance."),
@@ -52,6 +54,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     id: "mechanical",
     title: "Mechanical",
     icon: "mechanical",
+    image: "/service/fixing-engine-car.avif",
     summary: "Expert engine, transmission and suspension work by master technicians.",
     services: [
       mk("Engine Repair", "Precise diagnosis and repair of engine faults."),
@@ -70,6 +73,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     id: "electrical",
     title: "Electrical",
     icon: "electrical",
+    image: "/service/laptop_scanning.avif",
     summary: "Advanced auto-electrical diagnostics and repair for modern vehicles.",
     services: [
       mk("Battery", "Testing and replacement with genuine batteries."),
@@ -88,6 +92,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     id: "ac",
     title: "Air Conditioning",
     icon: "ac",
+    image: "/service/ac_service.jpg",
     summary: "Stay cool with complete AC servicing and repair.",
     services: [
       mk("Gas Refill", "AC gas top-up with leak testing."),
@@ -101,6 +106,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     id: "body-shop",
     title: "Body Shop",
     icon: "bodyshop",
+    image: "/service/denting_colouring.png",
     summary: "Factory-grade denting, painting and accident repair.",
     services: [
       mk("Denting", "Dent removal that restores original panel lines."),
@@ -115,6 +121,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     id: "detailing",
     title: "Detailing",
     icon: "detailing",
+    image: "/service/detailing.jpeg",
     summary: "Protect and transform your car with premium detailing.",
     services: [
       mk("Foam Wash", "pH-balanced foam wash that's gentle on paint."),
@@ -132,6 +139,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     id: "tyres",
     title: "Tyres & Wheels",
     icon: "tyres",
+    image: "/service/suspension.png",
     summary: "Balanced, aligned wheels for a safe, smooth ride.",
     services: [
       mk("Alignment", "Computerised wheel alignment."),

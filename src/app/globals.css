@@ -155,11 +155,107 @@ h1, h2, h3, h4, h5 {
   background-size: 48px 48px;
 }
 
+/* ---------- Hero image mirror + glow ---------- */
+.hero-image-mirror {
+  transform: scaleX(-1);
+}
+
+.hero-glow {
+  position: relative;
+}
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(ellipse at center, rgba(201, 133, 0, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- Floating animation ---------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ---------- Shimmer on glass cards ---------- */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.glass-shimmer {
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.12) 30%,
+    rgba(255, 255, 255, 0.04) 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* ---------- Gradient border for cards ---------- */
+.gradient-border {
+  position: relative;
+  background: var(--color-background);
+  border-radius: var(--radius-xl);
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-gold-300), var(--color-gold-700), var(--color-ink-600));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ---------- Pulse dot ---------- */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.pulse-dot {
+  position: relative;
+}
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  opacity: 0;
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ---------- Scrollbar-none utility ---------- */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* ---------- GSAP reveal defaults (no-JS / pre-hydration safe) ----------
    Elements marked data-reveal start hidden ONLY when JS+GSAP is active.
    We add the .gsap-ready class to <html> from the animation provider so
    content is always visible if JS fails. */
 .gsap-ready [data-reveal] {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.gsap-ready [data-reveal-children] > * {
   opacity: 0;
   will-change: transform, opacity;
 }
@@ -180,6 +276,7 @@ h1, h2, h3, h4, h5 {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .gsap-ready [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .gsap-ready [data-reveal-children] > * { opacity: 1 !important; transform: none !important; }
   .animate-marquee { animation: none; }
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
