@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SITE } from "@/lib/site";
 import {
   STATS,
   TRUST_POINTS,
@@ -8,7 +7,6 @@ import {
   BRANDS_SERVED,
   PREMIUM_BRANDS,
   OTHER_BRANDS,
-  TESTIMONIALS,
 } from "@/lib/content";
 import { SERVICE_CATEGORIES } from "@/lib/services";
 import { Section } from "@/components/ui/Section";
@@ -21,23 +19,19 @@ export default function HomePage() {
   return (
     <>
       {/* ══════════════════════════════════════════════════════════
-          HERO — Full-bleed background image (mirrored) with overlay
+          HERO — Full-bleed background image with overlay
           ══════════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden min-h-[92vh] flex items-center">
-        {/* Background image — mirrored */}
         <Image
-          src="/service/car-repair_41050-7681.avif"
+          src="/service/premium_car_inspection.jpg"
           alt=""
           fill
           priority
-          className="object-cover hero-image-mirror"
+          className="object-cover hero-image"
           aria-hidden="true"
         />
-        {/* Dark overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/50" />
-        {/* Grid texture on top */}
         <div className="absolute inset-0 grid-texture opacity-20" />
-        {/* Ambient glow */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-[120px]" />
 
         <div className="container-x relative z-10 py-20 md:py-28 text-white">
@@ -71,7 +65,6 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Mini trust badges */}
           <div data-reveal className="mt-10 flex items-center gap-6 text-xs text-white/40">
             <span className="flex items-center gap-1.5">
               <span className="text-gold">★</span> 4.9 Google Rating
@@ -193,6 +186,136 @@ export default function HomePage() {
       </Section>
 
       {/* ══════════════════════════════════════════════════════════
+          PREMIUM SHOWCASE — Full-bleed split with BMW
+          ══════════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden bg-ink text-white">
+        <div className="grid md:grid-cols-2 min-h-[480px]">
+          <div className="relative h-72 md:h-auto">
+            <Image
+              src="/service/bmw.jpg"
+              alt="BMW premium car service"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-ink md:block hidden" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink to-transparent md:hidden" />
+          </div>
+          <div className="flex items-center py-12 md:py-20 px-6 md:px-12 lg:px-16 bg-ink-gradient">
+            <div>
+              <p data-reveal className="text-xs font-medium text-gold uppercase tracking-widest mb-4">Premium Division</p>
+              <h2 data-reveal className="text-3xl md:text-4xl font-bold">
+                <span className="text-gradient-gold">Luxury Cars</span> Deserve Expert Care
+              </h2>
+              <p data-reveal className="mt-5 text-white/60 leading-relaxed">
+                Our dedicated premium division offers dealership-level service for BMW, Mercedes-Benz, Audi, Volvo, Jaguar and more — with OEM diagnostics, genuine parts and concierge pickup at honest prices.
+              </p>
+              <div data-reveal className="mt-6 grid grid-cols-3 gap-4">
+                {[
+                  { val: "9+", label: "Luxury Brands" },
+                  { val: "OEM", label: "Diagnostics" },
+                  { val: "100%", label: "Genuine Parts" },
+                ].map((s) => (
+                  <div key={s.label} className="text-center">
+                    <p className="font-display text-2xl font-bold text-gradient-gold">{s.val}</p>
+                    <p className="text-xs text-white/40 mt-1">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+              <Link
+                data-reveal
+                href="/premium-cars"
+                className="mt-8 inline-block rounded-full bg-gold px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-gold-600 hover:shadow-gold"
+              >
+                Explore Premium Services
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════
+          FROM OUR WORKSHOP — Service-focused bento grid
+          ══════════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <div className="absolute inset-0 bg-gradient-to-b from-cream via-white to-cream" />
+        <div className="container-x relative z-10">
+          <div className="text-center" data-reveal>
+            <p className="text-xs font-medium text-gold uppercase tracking-widest mb-3">From Our Workshop</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+              Precision at <span className="text-gradient-gold">Every Step</span>
+            </h2>
+            <p className="mt-4 text-ink/50 max-w-lg mx-auto">
+              Every vehicle that enters our workshop receives the same meticulous attention — from diagnostics to the final quality check.
+            </p>
+          </div>
+
+          {/* Bento grid */}
+          <div className="mt-14 grid grid-cols-4 md:grid-cols-6 gap-4 auto-rows-[180px] md:auto-rows-[200px]" data-reveal-children>
+            {/* Large hero card */}
+            <div className="col-span-4 md:col-span-3 row-span-2 group relative overflow-hidden rounded-2xl">
+              <Image src="/service/fortuner.jpg" alt="Full service inspection" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <div className="inline-flex items-center gap-2 rounded-full bg-gold/20 backdrop-blur-sm px-3 py-1 mb-3">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                  <span className="text-[11px] font-medium text-gold-300">Complete Service</span>
+                </div>
+                <h3 className="font-display text-xl md:text-2xl font-bold text-white">Bumper-to-Bumper Inspection</h3>
+                <p className="mt-2 text-sm text-white/50 max-w-sm">Multi-point quality check with photo-backed digital report — so you know exactly what your car needs.</p>
+              </div>
+            </div>
+
+            {/* Top right tall card */}
+            <div className="col-span-2 md:col-span-3 row-span-1 group relative overflow-hidden rounded-2xl">
+              <Image src="/service/mercedies.jpg" alt="OEM diagnostics" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <div className="inline-flex items-center gap-2 rounded-full bg-gold/20 backdrop-blur-sm px-3 py-1 mb-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                  <span className="text-[11px] font-medium text-gold-300">OEM Diagnostics</span>
+                </div>
+                <h3 className="font-display text-lg font-bold text-white">Brand-Specific Diagnostics</h3>
+              </div>
+            </div>
+
+            {/* Bottom right — two cards side by side */}
+            <div className="col-span-2 md:col-span-1 row-span-1 group relative overflow-hidden rounded-2xl">
+              <Image src="/service/mastang.jpg" alt="Paint correction" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="text-xs font-medium text-gold">Detailing</p>
+                <p className="text-sm font-semibold text-white mt-0.5">Paint Correction</p>
+              </div>
+            </div>
+
+            <div className="col-span-2 row-span-1 group relative overflow-hidden rounded-2xl">
+              <Image src="/service/premium_car.jpg" alt="Ceramic coating" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="text-xs font-medium text-gold">Protection</p>
+                <p className="text-sm font-semibold text-white mt-0.5">Ceramic & Graphene Coating</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom stat strip */}
+          <div data-reveal className="mt-8 flex flex-wrap items-center justify-center gap-8 md:gap-14 text-center">
+            {[
+              { val: "25,000+", label: "Cars Serviced" },
+              { val: "50+", label: "Expert Services" },
+              { val: "2", label: "Workshops in Pune" },
+              { val: "4.9★", label: "Google Rating" },
+            ].map((s) => (
+              <div key={s.label}>
+                <p className="font-display text-2xl md:text-3xl font-bold text-gradient-gold">{s.val}</p>
+                <p className="text-xs text-ink/40 mt-1">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════
           BRANDS MARQUEE — Logo strip
           ══════════════════════════════════════════════════════════ */}
       <section data-reveal className="py-12 bg-cream border-y border-ink/5">
@@ -203,40 +326,6 @@ export default function HomePage() {
         </div>
         <BrandsMarquee brands={[...BRANDS_SERVED, ...PREMIUM_BRANDS, ...OTHER_BRANDS]} />
       </section>
-
-      {/* ══════════════════════════════════════════════════════════
-          TESTIMONIALS — Horizontal scroll with snap
-          ══════════════════════════════════════════════════════════ */}
-      <Section>
-        <SectionHeading
-          title="What Our Customers Say"
-          subtitle="Real reviews from real car owners across Pune."
-        />
-        <div className="mt-12 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-1 px-1 scrollbar-none">
-          {TESTIMONIALS.map((t) => (
-            <div
-              key={t.name}
-              className="min-w-[320px] max-w-[360px] flex-shrink-0 snap-start rounded-2xl border border-ink/8 bg-white p-6 card-hover"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-white font-display font-bold text-sm">
-                  {t.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-display text-sm font-semibold">{t.name}</p>
-                  <p className="text-xs text-ink/50">{t.car} · {t.area}</p>
-                </div>
-              </div>
-              <div className="flex gap-0.5 text-gold text-sm mb-3">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <span key={i}>★</span>
-                ))}
-              </div>
-              <p className="text-sm leading-relaxed text-ink/70">&ldquo;{t.quote}&rdquo;</p>
-            </div>
-          ))}
-        </div>
-      </Section>
 
       {/* ══════════════════════════════════════════════════════════
           CTA

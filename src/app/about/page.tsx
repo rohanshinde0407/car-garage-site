@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
-import { CORE_VALUES, TIMELINE, TEAM } from "@/lib/content";
+import { CORE_VALUES, TEAM } from "@/lib/content";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -74,27 +74,6 @@ export default function AboutPage() {
               </div>
               <h3 className="font-display text-lg font-semibold">{v.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink/60">{v.desc}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* ── Timeline ── */}
-      <Section className="bg-cream">
-        <SectionHeading title="Our Journey" />
-        <div className="mt-12 max-w-2xl mx-auto" data-reveal-children>
-          {TIMELINE.map((item, i) => (
-            <div key={item.year} className="relative pl-14 pb-12 last:pb-0">
-              {i < TIMELINE.length - 1 && (
-                <div className="absolute left-[19px] top-12 h-full w-px bg-gradient-to-b from-gold/40 to-transparent" />
-              )}
-              <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-gold text-white text-xs font-bold shadow-gold">
-                {item.year.slice(-2)}
-              </div>
-              <h3 className="font-display text-lg font-semibold">
-                {item.year} — {item.title}
-              </h3>
-              <p className="mt-1.5 text-sm text-ink/60 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
