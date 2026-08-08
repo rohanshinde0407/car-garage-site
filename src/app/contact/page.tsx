@@ -4,7 +4,6 @@ import { pageMetadata } from "@/lib/seo";
 import { SITE, BRANCHES } from "@/lib/site";
 import { Section } from "@/components/ui/Section";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
-import { ContactForm } from "@/components/ui/ContactForm";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact Us",
@@ -38,15 +37,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* ── Booking Form ── */}
-      <Section id="booking" className="bg-cream">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Book a Service</h2>
-          <div className="hairline w-16 mb-8" />
-          <ContactForm />
-        </div>
-      </Section>
 
       {/* ── Branches ── */}
       <Section>
