@@ -141,6 +141,7 @@ export const FOOTER_NAV: { title: string; items: NavItem[] }[] = [
       { label: "Terms & Conditions", href: "/terms" },
       { label: "Refund Policy", href: "/refund-policy" },
       { label: "Cookie Policy", href: "/privacy-policy#cookies" },
+      { label: "Data Deletion", href: "/data-deletion" },
     ],
   },
 ];
